@@ -4,7 +4,7 @@ def escolher_transacao():
     while True:
         resposta = input("Olá, seja muito bem vindo (a) ao nosso banco Py.\n"
                          "Por favor, escolha entre as opções:\n1 - Depositar\n"
-                         "2 - Transferir\n3 - Ver saldo\n")
+                         "2 - Transferir\n3 - Ver saldo\n4 - Sair\n")
         if resposta.isdigit():
             resposta = int(resposta)
             if 1 <= resposta <= 3:
@@ -14,8 +14,11 @@ def escolher_transacao():
                 elif resposta == 2:
                     return transferir()
                 
-                else:
-                    return carregar_patrimonio()
+                elif resposta == 3:
+                    return
+                
+                elif resposta == 4:
+                    break
             else:
                 print("Digite uma opção válida.")    
         else:
