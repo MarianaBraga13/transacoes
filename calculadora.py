@@ -1,13 +1,16 @@
 import os
+from gerar_extrato import mostrar_extrato, registrar_extrato
+
+
 
 def escolher_transacao():
     while True:
         resposta = input("Olá, seja muito bem vindo (a) ao nosso banco Py.\n"
                          "Por favor, escolha entre as opções:\n1 - Depositar\n"
-                         "2 - Transferir\n3 - Ver saldo\n4 - Sair\n")
+                         "2 - Transferir\n3 - Gerar Extrato e Sair\n4 - Ver saldo final e Sair\n")
         if resposta.isdigit():
             resposta = int(resposta)
-            if 1 <= resposta <= 3:
+            if 1 <= resposta <= 4:
                 if resposta == 1:
                     return depositar()
                 
@@ -15,10 +18,13 @@ def escolher_transacao():
                     return transferir()
                 
                 elif resposta == 3:
-                    return
+                    return mostrar_extrato()
                 
                 elif resposta == 4:
-                    break
+                    patrimonio_atual = carregar_patrimonio()
+                    print("\n------------------ SALDO FINAL -----------------\n")
+                    print(f"Patrimônio final nesta instituição financeira: R${patrimonio_atual:.2f}")
+                    break 
             else:
                 print("Digite uma opção válida.")    
         else:
@@ -45,6 +51,7 @@ def depositar():
             if deposito > 0:
                 patrimonio += deposito
                 salvar_patrimonio(patrimonio)
+                registrar_extrato("Depésito", deposito)
                 print(f"Depósito recebido com sucesso no valor de:R${deposito:.2f}")
                 print(f"Seu patrimônio no momento é:R${patrimonio:.2f}")
                 break
@@ -65,6 +72,7 @@ def transferir():
             if 0 <= transferencia <= patrimonio:
                 patrimonio -= transferencia
                 salvar_patrimonio(patrimonio)
+                registrar_extrato("Transferência", transferencia)
                 print(f"Transferência realizada com sucesso no valor de:R${transferencia:.2f}")
                 break
             else:
