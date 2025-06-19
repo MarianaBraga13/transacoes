@@ -4,9 +4,15 @@ from gerar_extrato import mostrar_extrato, registrar_extrato
 
 def escolher_transacao():
     while True:
-        resposta = input("Olá, seja muito bem vindo (a) ao nosso banco Py.\n"
-                         "Por favor, escolha entre as opções:\n1 - Depositar\n"
-                         "2 - Transferir\n3 - Gerar Extrato e Sair\n4 - Ver saldo final e Sair\n")
+        print("\n================== 🏦 BANCO PY ==================")
+        resposta = input(
+            "Escolha uma opção:\n"
+            "1️⃣  Depositar 💰\n"
+            "2️⃣  Transferir 💸\n"
+            "3️⃣  Gerar Extrato e Sair 📄\n"
+            "4️⃣  Sair c/ Saldo Final 🚪\n"
+            "👉 "
+        )
         if resposta.isdigit():
             resposta = int(resposta)
             if 1 <= resposta <= 4:
