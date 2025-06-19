@@ -1,4 +1,4 @@
-import os
+
 from gerar_extrato import mostrar_extrato, registrar_extrato
 from gerar_saldo import salvar_patrimonio, carregar_patrimonio
 
@@ -10,10 +10,14 @@ def escolher_transacao():
             "Escolha uma opção:\n"
             "1️⃣  Depositar 💰\n"
             "2️⃣  Transferir 💸\n"
-            "3️⃣  Gerar Extrato e Sair 📄\n"
-            "4️⃣  Sair c/ Saldo Final 🚪\n"
+            "3️⃣  Empréstimo 💵\n"
+            "4️⃣  Solicitar Cartão de Crédito 💳\n"
+            "5️⃣  Pagar Conta 🧾\n"
+            "6️⃣  Gerar Extrato 📄\n"
+            "7️⃣  Sair com Saldo Final 🚪\n"
             "👉 "
-        )
+        )    
+
         if resposta.isdigit():
             resposta = int(resposta)
             if 1 <= resposta <= 4:
@@ -22,11 +26,15 @@ def escolher_transacao():
                 
                 elif resposta == 2:
                     return transferir()
-                
                 elif resposta == 3:
-                    return mostrar_extrato()
-                
+                    return
                 elif resposta == 4:
+                    return
+                elif resposta == 5:
+                    return pagar_conta()
+                elif resposta == 6:
+                    return mostrar_extrato()
+                elif resposta == 7:
                     dados = carregar_patrimonio()
                     print("\n----------------------- SALDO FINAL -----------------------\n")
                     print(f"Patrimônio final nesta instituição financeira: R${dados["patrimonio"]:.2f}")
@@ -34,7 +42,7 @@ def escolher_transacao():
             else:
                 print("Digite uma opção válida.")    
         else:
-            print("Digite um número.")
+            print("Digite um número.")            
     
 
 def depositar():
@@ -91,8 +99,37 @@ def transferir():
 
     return patrimonio
 
+def pagar_conta():
+    dados = carregar_patrimonio()
+    patrimonio = dados["patrimonio"]    
 
-                 
+    while True:
+            pagamento = input("Insira o valor do Pagamento:\nR$ ")
+            dados = carregar_patrimonio()
 
-            
-                     
+            if pagamento.isdigit():
+                pagamento = float(pagamento)
+                if 0 <= pagamento <= patrimonio:
+                    dados["patrimonio"] -= pagamento
+                    salvar_patrimonio(dados)
+                    registrar_extrato("Pagamentos", pagamento)
+                    print(f"Pagamento realizado com sucesso no valor de:R${pagamento:.2f}")
+                    print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
+                    resposta = input("\nQualquer tecla para continuar | (S) para sair:")
+                    if resposta.upper() == "S":
+                        print("\nObrigada por utilizar nossos serviços! Até breve.")
+                        break
+                    else:
+                        return escolher_transacao()
+                else:
+                    print("Saldo insuficiente.")
+            else:
+                print("Digite um valor.")        
+
+    return patrimonio
+
+
+                    
+
+                
+                        
