@@ -27,9 +27,9 @@ def escolher_transacao():
                     return mostrar_extrato()
                 
                 elif resposta == 4:
-                    patrimonio_atual = carregar_patrimonio()
+                    dados = carregar_patrimonio()
                     print("\n----------------------- SALDO FINAL -----------------------\n")
-                    print(f"Patrimônio final nesta instituição financeira: R${patrimonio_atual}")
+                    print(f"Patrimônio final nesta instituição financeira: R${dados["patrimonio"]:.2f}")
                     break 
             else:
                 print("Digite uma opção válida.")    
