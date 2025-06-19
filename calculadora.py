@@ -28,8 +28,8 @@ def escolher_transacao():
                 
                 elif resposta == 4:
                     patrimonio_atual = carregar_patrimonio()
-                    print("\n------------------ SALDO FINAL -----------------\n")
-                    print(f"Patrimônio final nesta instituição financeira: R${patrimonio_atual:.2f}")
+                    print("\n----------------------- SALDO FINAL -----------------------\n")
+                    print(f"Patrimônio final nesta instituição financeira: R${patrimonio_atual}")
                     break 
             else:
                 print("Digite uma opção válida.")    
@@ -38,21 +38,22 @@ def escolher_transacao():
     
 
 def depositar():
-    patrimonio = carregar_patrimonio()
+    dados = carregar_patrimonio()
+    patrimonio = dados["patrimonio"]
 
     while True:
         deposito = input("Digite o valor para o depósito:\nR$ ")
         if deposito.isdigit():
             deposito = float(deposito)
             if deposito > 0:
-                patrimonio += deposito
-                salvar_patrimonio(patrimonio)
+                dados["patrimonio"] += deposito
+                salvar_patrimonio(dados)
                 registrar_extrato("Depósito", deposito)
                 print(f"Depósito recebido com sucesso no valor de:R${deposito:.2f}")
-                print(f"Seu patrimônio no momento é:R${patrimonio:.2f}")
+                print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
                 resposta = input("\nQualquer tecla para continuar | (S) para sair:")
                 if resposta.upper() == "S":
-                    print("Obrigada por utilizar nossos serviços! Até breve.")
+                    print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
                     return escolher_transacao()
@@ -64,20 +65,22 @@ def depositar():
     return patrimonio
 
 def transferir():
-    patrimonio = carregar_patrimonio()
+    dados = carregar_patrimonio()
+    patrimonio = dados["patrimonio"]
 
     while True:
         transferencia = input("Insira o valor da transferência:\nR$ ")
         if transferencia.isdigit():
             transferencia = float(transferencia)
             if 0 <= transferencia <= patrimonio:
-                patrimonio -= transferencia
-                salvar_patrimonio(patrimonio)
+                dados["patrimonio"] -= transferencia
+                salvar_patrimonio(dados)
                 registrar_extrato("Transferência", transferencia)
                 print(f"Transferência realizada com sucesso no valor de:R${transferencia:.2f}")
+                print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
                 resposta = input("\nQualquer tecla para continuar | (S) para sair:")
                 if resposta.upper() == "S":
-                    print("Obrigada por utilizar nossos serviços! Até breve.")
+                    print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
                     return escolher_transacao()
