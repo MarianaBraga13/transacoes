@@ -2,7 +2,6 @@ import os
 from gerar_extrato import mostrar_extrato, registrar_extrato
 
 
-
 def escolher_transacao():
     while True:
         resposta = input("Olá, seja muito bem vindo (a) ao nosso banco Py.\n"
@@ -51,10 +50,15 @@ def depositar():
             if deposito > 0:
                 patrimonio += deposito
                 salvar_patrimonio(patrimonio)
-                registrar_extrato("Depésito", deposito)
+                registrar_extrato("Depósito", deposito)
                 print(f"Depósito recebido com sucesso no valor de:R${deposito:.2f}")
                 print(f"Seu patrimônio no momento é:R${patrimonio:.2f}")
-                break
+                resposta = input("\nQualquer tecla para continuar | (S) para sair:")
+                if resposta.upper() == "S":
+                    print("Obrigada por utilizar nossos serviços! Até breve.")
+                    break
+                else:
+                    return escolher_transacao()
             else:
                 print("Digite um valor maior que zero.")
         else:
@@ -74,7 +78,12 @@ def transferir():
                 salvar_patrimonio(patrimonio)
                 registrar_extrato("Transferência", transferencia)
                 print(f"Transferência realizada com sucesso no valor de:R${transferencia:.2f}")
-                break
+                resposta = input("\nQualquer tecla para continuar | (S) para sair:")
+                if resposta.upper() == "S":
+                    print("Obrigada por utilizar nossos serviços! Até breve.")
+                    break
+                else:
+                    return escolher_transacao()
             else:
                 print("Saldo insuficiente.")
         else:
