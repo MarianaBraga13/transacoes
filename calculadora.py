@@ -1,5 +1,6 @@
 import os
 from gerar_extrato import mostrar_extrato, registrar_extrato
+from gerar_saldo import salvar_patrimonio, carregar_patrimonio
 
 
 def escolher_transacao():
@@ -34,17 +35,7 @@ def escolher_transacao():
                 print("Digite uma opção válida.")    
         else:
             print("Digite um número.")
-
-# persistência de dados
-def carregar_patrimonio():
-    if os.path.exists("patrimonio.txt"):
-        with open("patrimonio.txt", "r") as f:
-            return float(f.read().strip())
-    return 0.0
-
-def salvar_patrimonio(valor):
-    with open("patrimonio.txt", "w") as f:
-        f.write(str(valor))      
+    
 
 def depositar():
     patrimonio = carregar_patrimonio()
