@@ -1,4 +1,45 @@
 {
-    "patrimonio": 5576.0,
-    "historico": []
+    "patrimonio": 422.0,
+    "historico": [
+        {
+            "data": "2025-06-19 20:49:39",
+            "tipo": "deposito",
+            "valor": 7900.0
+        },
+        {
+            "data": "2025-06-19 20:52:11",
+            "tipo": "deposito",
+            "valor": 577.0
+        },
+        {
+            "data": "2025-06-19 20:53:55",
+            "tipo": "transferencia",
+            "valor": 638.0
+        },
+        {
+            "data": "2025-06-19 21:18:43",
+            "tipo": "transferencia",
+            "valor": 577.0
+        },
+        {
+            "data": "2025-06-19 21:22:04",
+            "tipo": "deposito",
+            "valor": 44.0
+        },
+        {
+            "data": "2025-06-19 21:22:11",
+            "tipo": "transferencia",
+            "valor": 2445.0
+        },
+        {
+            "data": "2025-06-19 21:28:29",
+            "tipo": "deposito",
+            "valor": 444.0
+        },
+        {
+            "data": "2025-06-19 22:13:23",
+            "tipo": "pagamento",
+            "valor": 3333.0
+        }
+    ]
 }

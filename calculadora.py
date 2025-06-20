@@ -1,4 +1,4 @@
-
+from datetime import datetime
 from gerar_extrato import mostrar_extrato, registrar_extrato
 from gerar_saldo import salvar_patrimonio, carregar_patrimonio
 
@@ -16,28 +16,27 @@ def escolher_transacao():
             "6️⃣  Gerar Extrato 📄\n"
             "7️⃣  Sair com Saldo Final 🚪\n"
             "👉 "
-        )    
+            )    
 
         if resposta.isdigit():
             resposta = int(resposta)
-            if 1 <= resposta <= 4:
+            if 1 <= resposta <= 7:
                 if resposta == 1:
-                    return depositar()
-                
+                    return depositar()                
                 elif resposta == 2:
                     return transferir()
                 elif resposta == 3:
-                    return
+                    return solicitar_emprestimo() 
                 elif resposta == 4:
-                    return
+                    return solicitar_cartao()
                 elif resposta == 5:
                     return pagar_conta()
                 elif resposta == 6:
                     return mostrar_extrato()
                 elif resposta == 7:
                     dados = carregar_patrimonio()
-                    print("\n----------------------- SALDO FINAL -----------------------\n")
-                    print(f"Patrimônio final nesta instituição financeira: R${dados["patrimonio"]:.2f}")
+                    print("\n-------------------- SALDO FINAL ------------------\n")
+                    print(f"Saldo final no Banco Py R${dados["patrimonio"]:.2f}")
                     break 
             else:
                 print("Digite uma opção válida.")    
@@ -55,11 +54,16 @@ def depositar():
             deposito = float(deposito)
             if deposito > 0:
                 dados["patrimonio"] += deposito
+                dados["historico"].append({
+                    "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "tipo": "deposito",
+                    "valor": deposito
+                })
                 salvar_patrimonio(dados)
                 registrar_extrato("Depósito", deposito)
                 print(f"Depósito recebido com sucesso no valor de:R${deposito:.2f}")
                 print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
-                resposta = input("\nQualquer tecla para continuar | (S) para sair:")
+                resposta = input("Qualquer tecla para continuar | (S) para sair:")
                 if resposta.upper() == "S":
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
@@ -82,11 +86,16 @@ def transferir():
             transferencia = float(transferencia)
             if 0 <= transferencia <= patrimonio:
                 dados["patrimonio"] -= transferencia
+                dados["historico"].append({
+                    "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "tipo": "transferencia",
+                    "valor": transferencia
+                })
                 salvar_patrimonio(dados)
                 registrar_extrato("Transferência", transferencia)
                 print(f"Transferência realizada com sucesso no valor de:R${transferencia:.2f}")
                 print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
-                resposta = input("\nQualquer tecla para continuar | (S) para sair:")
+                resposta = input("Qualquer tecla para continuar | (S) para sair:")
                 if resposta.upper() == "S":
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
@@ -104,31 +113,41 @@ def pagar_conta():
     patrimonio = dados["patrimonio"]    
 
     while True:
-            pagamento = input("Insira o valor do Pagamento:\nR$ ")
-            dados = carregar_patrimonio()
+        
+        pagamento = input("Insira o valor do Pagamento: \nR$ ")
+        dados = carregar_patrimonio()
 
-            if pagamento.isdigit():
-                pagamento = float(pagamento)
-                if 0 <= pagamento <= patrimonio:
-                    dados["patrimonio"] -= pagamento
-                    salvar_patrimonio(dados)
-                    registrar_extrato("Pagamentos", pagamento)
-                    print(f"Pagamento realizado com sucesso no valor de:R${pagamento:.2f}")
-                    print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
-                    resposta = input("\nQualquer tecla para continuar | (S) para sair:")
-                    if resposta.upper() == "S":
-                        print("\nObrigada por utilizar nossos serviços! Até breve.")
-                        break
-                    else:
-                        return escolher_transacao()
+        if pagamento.isdigit():
+            pagamento = float(pagamento)
+            if 0 <= pagamento <= patrimonio:
+                dados["patrimonio"] -= pagamento
+                dados["historico"].append({
+                    "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "tipo": "pagamento",
+                    "valor": pagamento
+                })  
+                salvar_patrimonio(dados)
+                registrar_extrato("Pagamentos", pagamento)
+                print(f"Pagamento realizado com sucesso no valor de:R${pagamento:.2f}")
+                print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
+                resposta = input("Qualquer tecla para continuar | (S) para sair:")
+                if resposta.upper() == "S":
+                    print("\nObrigada por utilizar nossos serviços! Até breve.")
+                    break
                 else:
-                    print("Saldo insuficiente.")
+                    return escolher_transacao()
             else:
-                print("Digite um valor.")        
+                print("Saldo insuficiente.")
+        else:
+            print("Digite um valor.")        
 
     return patrimonio
 
+def solicitar_cartao():
+    return print("Serviço indisponível.")      
 
+def solicitar_emprestimo():
+    return print("Serviço indisponível.")
                     
 
                 
