@@ -36,7 +36,7 @@ def escolher_transacao():
                 elif resposta == 7:
                     dados = carregar_patrimonio()
                     print("\n-------------------- SALDO FINAL ------------------\n")
-                    print(f"Saldo final no Banco Py R${dados["patrimonio"]:.2f}")
+                    print(f"Saldo final no Banco Py: R${dados["patrimonio"]:.2f}")
                     break 
             else:
                 print("Digite uma opção válida.")    
