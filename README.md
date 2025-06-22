@@ -11,7 +11,9 @@ Resumo:
 
 Na v1.0 o programa gerava automaticamente o .txt onde ficavam armazenadas as informações, para que os dados de transações persistissem de forma prática.
 
-Na nova versão, migrei os dados para arquivos json, evitando que os dados salvos precisem ser sobrescritos todas as vezes no arquivo .txt.
+Na nova versão, migrei os dados para arquivos json, evitando que os dados salvos precisem ser sobrescritos todas as vezes no arquivo .txt. Além disso introduzi mais algumas opções no painél | menu de opções. Isso nos permitirá criar uma análise de crédito simples, nas próximas versões.
+
+Gerar extrato então ficou mais dinâmico e fácil de organizar. Além da facilidade maior de integrar com uma API de análise de dados, por exemplo, das próximas versões.
 
 Acrescentei também a área de login com senha, usando conceitos de POO, além da opção do cartão de crédito.
 

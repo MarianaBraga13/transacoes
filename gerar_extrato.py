@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 
+
 def registrar_extrato(tipo, valor):
     data_hora = datetime.now().strftime("[%Y-%m-%d %H:%M:%S]")
     with open("extrato.txt", "a") as f:
