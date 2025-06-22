@@ -1,5 +1,6 @@
 from datetime import datetime
-from registro_transacoes import salvar_patrimonio, carregar_patrimonio, mostrar_extrato
+from gerar_extrato import mostrar_extrato, registrar_extrato
+from gerar_saldo import salvar_patrimonio, carregar_patrimonio, mostrar_extrato
 
 
 def escolher_transacao():
@@ -59,7 +60,7 @@ def depositar():
                     "valor": deposito
                 })
                 salvar_patrimonio(dados)
-                #registrar_extrato("Depósito", deposito)
+                registrar_extrato("Depósito", deposito)
                 print(f"Depósito recebido com sucesso no valor de:R${deposito:.2f}")
                 print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
@@ -91,7 +92,7 @@ def transferir():
                     "valor": transferencia
                 })
                 salvar_patrimonio(dados)
-                #registrar_extrato("Transferência", transferencia)
+                registrar_extrato("Transferência", transferencia)
                 print(f"Transferência realizada com sucesso no valor de:R${transferencia:.2f}")
                 print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
@@ -126,7 +127,7 @@ def pagar_conta():
                     "valor": pagamento
                 })  
                 salvar_patrimonio(dados)
-                #registrar_extrato("Pagamentos", pagamento)
+                registrar_extrato("Pagamentos", pagamento)
                 print(f"Pagamento realizado com sucesso no valor de:R${pagamento:.2f}")
                 print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")

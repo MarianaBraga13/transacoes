@@ -1,7 +1,7 @@
 from datetime import datetime
 from gerar_extrato import mostrar_extrato, registrar_extrato
 from gerar_saldo import salvar_patrimonio, carregar_patrimonio
-from painel_interativo import escolher_transacao
+
 
 
 class Transacoes:
