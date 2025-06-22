@@ -45,45 +45,43 @@ def escolher_transacao():
 
 def depositar():
     dados = carregar_patrimonio()
-    patrimonio = dados["patrimonio"]
 
     while True:
         deposito = input("Digite o valor para o depósito:\nR$ ")
-        if deposito.isdigit():
+
+        try:
             deposito = float(deposito)
             if deposito > 0:
                 dados["patrimonio"] += deposito
                 dados["historico"].append({
                     "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "tipo": "deposito",
+                    "tipo": "depósito",
                     "valor": deposito
                 })
                 salvar_patrimonio(dados)
-                #registrar_extrato("Depósito", deposito)
-                print(f"Depósito recebido com sucesso no valor de:R${deposito:.2f}")
-                print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
-                resposta = input("Qualquer tecla para continuar | (S) para sair:")
+                print(f"Depósito recebido com sucesso no valor de: R${deposito:.2f}")
+                print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
+                resposta = input("Qualquer tecla para continuar | (S) para sair: ")
                 if resposta.upper() == "S":
+                    print("\n================== 🏦 BANCO PY ==================")
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
                     return escolher_transacao()
             else:
                 print("Digite um valor maior que zero.")
-        else:
-            print("Digite apenas valores numéricos.")
+        except ValueError:
+            print("Digite apenas números válidos. Ex: 10.00, 50.5, etc.")
 
-    return patrimonio
 
 def transferir():
     dados = carregar_patrimonio()
-    patrimonio = dados["patrimonio"]
 
     while True:
         transferencia = input("Insira o valor da transferência:\nR$ ")
-        if transferencia.isdigit():
+        try:
             transferencia = float(transferencia)
-            if 0 <= transferencia <= patrimonio:
+            if 0 <= transferencia <= dados["patrimonio"]:
                 dados["patrimonio"] -= transferencia
                 dados["historico"].append({
                     "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -91,56 +89,49 @@ def transferir():
                     "valor": transferencia
                 })
                 salvar_patrimonio(dados)
-                #registrar_extrato("Transferência", transferencia)
-                print(f"Transferência realizada com sucesso no valor de:R${transferencia:.2f}")
-                print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
+                print(f"Transferência realizada com sucesso no valor de: R${transferencia:.2f}")
+                print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
                 if resposta.upper() == "S":
+                    print("\n================== 🏦 BANCO PY ==================")
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
                     return escolher_transacao()
             else:
                 print("Saldo insuficiente.")
-        else:
-            print("Digite um valor.")        
-
-    return patrimonio
+        except ValueError:
+            print("Digite um valor numérico válido.")
 
 def pagar_conta():
     dados = carregar_patrimonio()
-    patrimonio = dados["patrimonio"]    
 
     while True:
-        
-        pagamento = input("Insira o valor do Pagamento: \nR$ ")
-        dados = carregar_patrimonio()
-
-        if pagamento.isdigit():
+        pagamento = input("Insira o valor do Pagamento:\nR$ ")
+        try:
             pagamento = float(pagamento)
-            if 0 <= pagamento <= patrimonio:
+            if 0 <= pagamento <= dados["patrimonio"]:
                 dados["patrimonio"] -= pagamento
                 dados["historico"].append({
                     "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "tipo": "pagamento",
                     "valor": pagamento
-                })  
+                })
                 salvar_patrimonio(dados)
-                #registrar_extrato("Pagamentos", pagamento)
-                print(f"Pagamento realizado com sucesso no valor de:R${pagamento:.2f}")
-                print(f"Novo Saldo: R${dados["patrimonio"]:.2f}")
+                print(f"Pagamento realizado com sucesso no valor de: R${pagamento:.2f}")
+                print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
                 if resposta.upper() == "S":
+                    print("\n================== 🏦 BANCO PY ==================")
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
                     return escolher_transacao()
             else:
                 print("Saldo insuficiente.")
-        else:
-            print("Digite um valor.")        
+        except ValueError:
+            print("Digite um valor numérico válido.")
 
-    return patrimonio
 
 def solicitar_cartao():
     return print("Serviço indisponível.")      
