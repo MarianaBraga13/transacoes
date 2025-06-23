@@ -15,7 +15,7 @@ def carregar_usuarios():
     if os.path.exists(ARQUIVO_USUARIOS):
         with open(ARQUIVO_USUARIOS, "r") as f:
             return json.load(f)
-    return {} # Me retorne o que tiver dentro
+    return {} 
 
 ### Como JSON vai salvar os dados
 
