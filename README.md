@@ -8,12 +8,12 @@ Resumo:
 ## Histórico de versões
 
 - ✅ **v1.0**: Transações com arquivos `.txt`, menu simples;
-- ✅ **v2.0**: Saldo e extrato migrados para JSON; área de login com ID único, com todo o histórico.
-- 👉 A nova versão v3.0 prevê análise de crédito automatizada.
+- ✅ **v2.0**: Saldo e extrato migrados para JSON, área de autenticação/ login sem ID único.
+- 👉 A nova versão v3.0 prevê a implementação de ID único por cliente e, finalmente, análise de crédito automatizada.
 
 Na v1.0 o programa gerava automaticamente o .txt onde ficavam armazenadas as informações, para que os dados de transações persistissem de forma prática.
 
-Na nova versão, migrei os dados para arquivos .json, para que possamos armazenar mais dados do cliente em um dict. Além disso, introduzi mais algumas opções no painel | menu de opções.Por último, implementei o acesso com login e senha com ID único;
+Na nova versão, migrei os dados para arquivos .json, para que possamos armazenar mais dados do cliente em um dict. Além disso, introduzi mais algumas opções no painel | menu de opções.Por último, implementei o acesso com login e senha.
 Essas mudanças nos permitirão criar uma análise de crédito simples, nas próximas versões. 
 
 Gerar extrato então ficou mais dinâmico e fácil de organizar. Além da facilidade maior de integrar com uma API de análise de dados, por exemplo, das próximas versões.
