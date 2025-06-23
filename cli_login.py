@@ -1,8 +1,6 @@
-from cli_interativo import escolher_transacao
 import os
 import json
 import getpass
-from cli_interativo import escolher_transacao
 
 # Caminho do arquivo
 ARQUIVO_USUARIOS = "usuarios.json"
@@ -33,7 +31,7 @@ def cadastrar_usuario():
     
     if username in usuarios:
         print("Usuário (a) já existe.")
-        return
+        return False
     else:
         senha = getpass.getpass("Crie uma senha: ")
         usuarios[username] = {'senha': senha} # Enviar para o ARQUIVO_USUARIOS dessa forma
@@ -61,6 +59,7 @@ def fazer_login():
         else:
             print("Senha incorreta.")
             return
+
 
 
 
