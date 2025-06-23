@@ -41,4 +41,3 @@ def escolher_transacao():
         else:
             print("Digite um número.")            
     
-escolher_transacao()

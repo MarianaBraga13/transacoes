@@ -2,67 +2,93 @@ import os
 import json
 import getpass
 
-# Caminho do arquivo
-ARQUIVO_USUARIOS = "usuarios.json"
-
+LOGIN_CLIENTE = "dados_login.json"
 # Estrutura do documento json (como serão salvos e lidos os dados):
 
+### Como o JSON vai SALVAR os dados
+def salvar_usuario(nome, senha):
+    usuarios = carregar_usuarios()
+    usuarios[nome] = {'senha' : senha}
+    with open(LOGIN_CLIENTE, "w") as f:
+        json.dump(usuarios, f, indent=4) 
+
 ### Como o JSON vai LER os dados
-
 def carregar_usuarios():
-    if os.path.exists(ARQUIVO_USUARIOS):
-        with open(ARQUIVO_USUARIOS, "r") as f:
+    if os.path.exists(LOGIN_CLIENTE):
+        with open(LOGIN_CLIENTE, "r") as f:
             return json.load(f)
-    return {} 
+    return {}
 
-### Como JSON vai salvar os dados
+### Cadastrando o usuário (a)
 
-def salvar_usuarios(usuarios):
-    with open(ARQUIVO_USUARIOS, "w") as f:
-        json.dump(usuarios, f, indent=4)
-
-# Como vai funcionar o cadastro:
-
-def cadastrar_usuario():
+def cadastrar():
     print("\n================== 🏦 BANCO PY ==================\n")
     print("Área de Cadastro de Usuário (a)\n")
-    usuarios = carregar_usuarios() # Carrego usuários para verificarem se já existem
-    username = input("Cadastro de Usuário (a).\nEscolha o nome do usuário (a):\n")
-    
-    if username in usuarios:
-        print("Usuário (a) já existe.")
-        return False
-    else:
-        senha = getpass.getpass("Crie uma senha: ")
-        usuarios[username] = {'senha': senha} # Enviar para o ARQUIVO_USUARIOS dessa forma
-        salvar_usuarios()
-        print("Usuário (a) cadastrado (a) com sucesso.\n Bem vindo (a) ao Banco Py")
-
-# Como vai fazer login
-
-def fazer_login():
-    print("\n================== 🏦 BANCO PY ==================\n")
-    print("Área de login\n")
     usuarios = carregar_usuarios()
-    username = input("Usuário (a): ")
-
-    if username not in usuarios:
-        print("Usuário (a) não cadastrado (a)") 
-        return   
-
+    nome = input("\n Insira seu Nome Completo 👤: ")
+    if nome in usuarios:
+        print("Nome já cadastrado.")
     else:
-        senha = getpass.getpass("Senha: ")
+        senha = getpass.getpass("\n Insira sua senha para cadastro 🔑: ")
+        salvar_usuario(nome, senha)
+        print("\nCadastro realizado com sucesso!")
 
-        if senha == usuarios[username]['senha']:
-            print(f"Login efetuado com sucesso. Bem vindo (a), {username}")
-            return
+### Efetuando login
+
+def logar():
+    print("\n================== 🏦 BANCO PY ==================\n")
+    print("Olá! 👋 Faça login para acessar a sua conta: \n")
+    usuarios = carregar_usuarios()
+    
+    print("Usuários Cadastrados no momento: (Apenas para testes)\n", usuarios) # Apenas para testes
+    nome = input("\nNome 👤 : ")
+    if nome in usuarios:
+        senha = getpass.getpass("\n Senha 🔑: ")
+        if senha == usuarios[nome]['senha']:
+            print("\nLogin efetuado com sucesso!")
+            return True 
         else:
             print("Senha incorreta.")
-            return
+            return False
+    else:
+        print("Usuário não cadastrado.")
+        return False
+
+     
+           
 
 
-
-
-
+         
+   
         
         
+    
+    
+
+
+    
+
+ 
+     
+          
+
+
+               
+          
+     
+     
+
+     
+     
+    
+                    
+
+              
+
+
+                  
+                  
+                  
+
+             
+             

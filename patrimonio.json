@@ -1,5 +1,5 @@
 {
-    "patrimonio": 541.0,
+    "patrimonio": 26157.0,
     "historico": [
         {
             "data": "2025-06-19 20:49:39",
@@ -115,6 +115,21 @@
             "data": "2025-06-22 19:58:42",
             "tipo": "transferencia",
             "valor": 45.0
+        },
+        {
+            "data": "2025-06-23 14:47:32",
+            "tipo": "pagamento",
+            "valor": 234.0
+        },
+        {
+            "data": "2025-06-23 14:47:58",
+            "tipo": "dep\u00f3sito",
+            "valor": 28282.0
+        },
+        {
+            "data": "2025-06-23 15:41:18",
+            "tipo": "transferencia",
+            "valor": 2432.0
         }
     ]
 }
