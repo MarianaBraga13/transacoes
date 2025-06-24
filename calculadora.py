@@ -8,7 +8,6 @@ def depositar(user_id):
 
     while True:
         deposito = input("Digite o valor para o depósito:\nR$ ")
-
         try:
             deposito = float(deposito)
             if deposito > 0:
@@ -18,7 +17,7 @@ def depositar(user_id):
                     "tipo": "depósito",
                     "valor": deposito
                 })
-                salvar_patrimonio(user_id)
+                salvar_patrimonio(user_id, dados)
                 print(f"Depósito recebido com sucesso no valor de: R${deposito:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair: ")
@@ -27,7 +26,7 @@ def depositar(user_id):
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
-                    return escolher_transacao()
+                    return escolher_transacao(user_id)
             else:
                 print("Digite um valor maior que zero.")
         except ValueError:
@@ -49,7 +48,7 @@ def transferir(user_id):
                     "tipo": "transferencia",
                     "valor": transferencia
                 })
-                salvar_patrimonio(dados)
+                salvar_patrimonio(user_id, dados)
                 print(f"Transferência realizada com sucesso no valor de: R${transferencia:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
@@ -58,7 +57,7 @@ def transferir(user_id):
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
-                    return escolher_transacao()
+                    return escolher_transacao(user_id)
             else:
                 print("Saldo insuficiente.")
         except ValueError:
@@ -79,7 +78,7 @@ def pagar_conta(user_id):
                     "tipo": "pagamento",
                     "valor": pagamento
                 })
-                salvar_patrimonio(dados)
+                salvar_patrimonio(user_id, dados)
                 print(f"Pagamento realizado com sucesso no valor de: R${pagamento:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
@@ -88,17 +87,17 @@ def pagar_conta(user_id):
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
-                    return escolher_transacao()
+                    return escolher_transacao(user_id)
             else:
                 print("Saldo insuficiente.")
         except ValueError:
             print("Digite um valor numérico válido.")
 
 
-def solicitar_cartao():
+def solicitar_cartao(user_id):
     return print("Serviço indisponível.")      
 
-def solicitar_emprestimo():
+def solicitar_emprestimo(user_id):
     return print("Serviço indisponível.")
                     
 

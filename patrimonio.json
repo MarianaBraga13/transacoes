@@ -1,0 +1,32 @@
+{
+    "u001": {
+        "patrimonio": 19.0,
+        "historico": [
+            {
+                "data": "2025-06-24 16:05:27",
+                "tipo": "dep\u00f3sito",
+                "valor": 23.0
+            },
+            {
+                "data": "2025-06-24 16:05:33",
+                "tipo": "transferencia",
+                "valor": 4.0
+            }
+        ]
+    },
+    "u003": {
+        "patrimonio": 655.0,
+        "historico": [
+            {
+                "data": "2025-06-24 16:06:15",
+                "tipo": "dep\u00f3sito",
+                "valor": 1000.0
+            },
+            {
+                "data": "2025-06-24 16:06:24",
+                "tipo": "pagamento",
+                "valor": 345.0
+            }
+        ]
+    }
+}
