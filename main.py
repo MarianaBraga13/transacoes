@@ -7,16 +7,18 @@ if __name__ == "__main__":
         opcao = input("Você já possui uma conta? 🔐 (s/n): ").strip().lower()
 
         if opcao == "s":
-            if logar():
-                escolher_transacao()
+            user_id = logar()
+            if user_id:
+                escolher_transacao(user_id)
                 break  # Sai do loop após transação
             else:
                 print("\n❌ Login falhou. Tente novamente.")
         elif opcao == "n":
             cadastrar()
             print("\n✅ Agora vamos fazer o login...")
-            if logar():
-                escolher_transacao()
+            user_id = logar()
+            if user_id:
+                escolher_transacao(user_id)
                 break
         else:
             print("Opção inválida. Digite 's' para sim ou 'n' para não.")

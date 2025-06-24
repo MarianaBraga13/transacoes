@@ -2,9 +2,9 @@ from datetime import datetime
 from registro_transacoes import salvar_patrimonio, carregar_patrimonio
 
 
-def depositar():
+def depositar(user_id):
     from cli_interativo import escolher_transacao
-    dados = carregar_patrimonio()
+    dados = carregar_patrimonio(user_id)
 
     while True:
         deposito = input("Digite o valor para o depósito:\nR$ ")
@@ -18,7 +18,7 @@ def depositar():
                     "tipo": "depósito",
                     "valor": deposito
                 })
-                salvar_patrimonio(dados)
+                salvar_patrimonio(user_id)
                 print(f"Depósito recebido com sucesso no valor de: R${deposito:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair: ")
@@ -34,9 +34,9 @@ def depositar():
             print("Digite apenas números válidos. Ex: 10.00, 50.5, etc.")
 
 
-def transferir():
+def transferir(user_id):
     from cli_interativo import escolher_transacao
-    dados = carregar_patrimonio()
+    dados = carregar_patrimonio(user_id)
 
     while True:
         transferencia = input("Insira o valor da transferência:\nR$ ")
@@ -64,9 +64,9 @@ def transferir():
         except ValueError:
             print("Digite um valor numérico válido.")
 
-def pagar_conta():
+def pagar_conta(user_id):
     from cli_interativo import escolher_transacao
-    dados = carregar_patrimonio()
+    dados = carregar_patrimonio(user_id)
 
     while True:
         pagamento = input("Insira o valor do Pagamento:\nR$ ")

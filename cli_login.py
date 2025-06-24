@@ -2,13 +2,27 @@ import os
 import json
 import getpass
 
+
+def gerar_novo_id(usuarios):
+    if not usuarios:
+        return "u001"
+    
+    else:
+        ids = [int(uuid[1:]) for uuid in usuarios.keys()]
+        novo_id = max(ids) + 1
+        return f"u{novo_id:03d}"
+    
+
 LOGIN_CLIENTE = "dados_login.json"
 # Estrutura do documento json (como serão salvos e lidos os dados):
 
 ### Como o JSON vai SALVAR os dados
 def salvar_usuario(nome, senha):
     usuarios = carregar_usuarios()
-    usuarios[nome] = {'senha' : senha}
+    novo_id = gerar_novo_id(usuarios)
+
+    usuarios[novo_id] = {'nome': nome, 'senha' : senha}
+
     with open(LOGIN_CLIENTE, "w") as f:
         json.dump(usuarios, f, indent=4) 
 
@@ -25,11 +39,14 @@ def cadastrar():
     print("\n================== 🏦 BANCO PY ==================\n")
     print("Área de Cadastro de Usuário (a)\n")
     usuarios = carregar_usuarios()
-    nome = input("\n Insira seu Nome Completo 👤: ")
-    if nome in usuarios:
-        print("Nome já cadastrado.")
+    nome = input("\nInsira seu Nome Completo 👤: ")
+    #if any(user['nome'] == nome for user in usuarios.values()):
+    for user_id, user_data in usuarios.items():
+        if user_data["nome"] == nome:
+            print(f"Usuário já cadastrado com ID {user_id}")
+            return
     else:
-        senha = getpass.getpass("\n Insira sua senha para cadastro 🔑: ")
+        senha = getpass.getpass("\nInsira sua senha para cadastro 🔑: ")
         salvar_usuario(nome, senha)
         print("\nCadastro realizado com sucesso!")
 
@@ -42,53 +59,13 @@ def logar():
     
     print("Usuários Cadastrados no momento: (Apenas para testes)\n", usuarios) # Apenas para testes
     nome = input("\nNome 👤 : ")
-    if nome in usuarios:
-        senha = getpass.getpass("\n Senha 🔑: ")
-        if senha == usuarios[nome]['senha']:
+    senha = getpass.getpass("\nSenha 🔑: ")
+    #if any(user['nome'] == nome for user in usuarios.values()): # Percorra usuarios.values e verifique se contém o nome
+    for user_id, user_data in usuarios.items():
+        if user_data['nome'] == nome and user_data['senha'] == senha: 
             print("\nLogin efetuado com sucesso!")
-            return True 
-        else:
-            print("Senha incorreta.")
-            return False
-    else:
-        print("Usuário não cadastrado.")
-        return False
-
-     
-           
-
-
-         
-   
-        
-        
+            return user_id
     
-    
+    print("Senha incorreta.")
+    return None
 
-
-    
-
- 
-     
-          
-
-
-               
-          
-     
-     
-
-     
-     
-    
-                    
-
-              
-
-
-                  
-                  
-                  
-
-             
-             

@@ -1,23 +1,22 @@
 {
-    "mariana": {
+    "u001": {
+        "nome": "Mariana Braga",
         "senha": "1234"
     },
-    "gustavo": {
-        "senha": "3456"
+    "u002": {
+        "nome": "Gustavo Garcia",
+        "senha": "6789"
     },
-    "reginaldo": {
-        "senha": "235343"
+    "u003": {
+        "nome": "Cristiane Almeida",
+        "senha": "6789"
     },
-    "amelia": {
-        "senha": "98876"
+    "u004": {
+        "nome": "Ramiro Machado Siqueira",
+        "senha": "45678"
     },
-    "Juvenal da Silva": {
-        "senha": "2345"
-    },
-    "Mariana Domingues": {
-        "senha": "1234"
-    },
-    "gumercinda": {
-        "senha": "2456"
+    "u005": {
+        "nome": "Gabriela Siqueira Jr.",
+        "senha": "7890"
     }
 }
