@@ -1,10 +1,12 @@
 from cli_interativo import escolher_transacao
 from cli_login import logar, cadastrar
+from  usuario import Usuario
 
 def iniciar_transacao():
     user_id = logar()
     if user_id:
-        escolher_transacao(user_id)
+        usuario = Usuario(user_id)
+        escolher_transacao(usuario)
         return True
     else:
         print("\n❌ Login falhou. Tente novamente.")
