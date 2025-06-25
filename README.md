@@ -18,4 +18,4 @@ A expectativa para a versão seguinte (v4.0) é organizar todo o código seguind
 
 CLI (Comand Line Interface).
 
-Esse sistema é a Versão 3.0.
+Esse sistema é a Versão 4.0.
