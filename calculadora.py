@@ -2,13 +2,12 @@ from datetime import datetime
 from registro_transacoes import salvar_patrimonio, carregar_patrimonio
 
 
-def depositar():
+def depositar(user_id):
     from cli_interativo import escolher_transacao
-    dados = carregar_patrimonio()
+    dados = carregar_patrimonio(user_id)
 
     while True:
         deposito = input("Digite o valor para o depósito:\nR$ ")
-
         try:
             deposito = float(deposito)
             if deposito > 0:
@@ -18,7 +17,7 @@ def depositar():
                     "tipo": "depósito",
                     "valor": deposito
                 })
-                salvar_patrimonio(dados)
+                salvar_patrimonio(user_id, dados)
                 print(f"Depósito recebido com sucesso no valor de: R${deposito:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair: ")
@@ -27,16 +26,16 @@ def depositar():
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
-                    return escolher_transacao()
+                    return escolher_transacao(user_id)
             else:
                 print("Digite um valor maior que zero.")
         except ValueError:
             print("Digite apenas números válidos. Ex: 10.00, 50.5, etc.")
 
 
-def transferir():
+def transferir(user_id):
     from cli_interativo import escolher_transacao
-    dados = carregar_patrimonio()
+    dados = carregar_patrimonio(user_id)
 
     while True:
         transferencia = input("Insira o valor da transferência:\nR$ ")
@@ -49,7 +48,7 @@ def transferir():
                     "tipo": "transferencia",
                     "valor": transferencia
                 })
-                salvar_patrimonio(dados)
+                salvar_patrimonio(user_id, dados)
                 print(f"Transferência realizada com sucesso no valor de: R${transferencia:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
@@ -58,15 +57,15 @@ def transferir():
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
-                    return escolher_transacao()
+                    return escolher_transacao(user_id)
             else:
                 print("Saldo insuficiente.")
         except ValueError:
             print("Digite um valor numérico válido.")
 
-def pagar_conta():
+def pagar_conta(user_id):
     from cli_interativo import escolher_transacao
-    dados = carregar_patrimonio()
+    dados = carregar_patrimonio(user_id)
 
     while True:
         pagamento = input("Insira o valor do Pagamento:\nR$ ")
@@ -79,7 +78,7 @@ def pagar_conta():
                     "tipo": "pagamento",
                     "valor": pagamento
                 })
-                salvar_patrimonio(dados)
+                salvar_patrimonio(user_id, dados)
                 print(f"Pagamento realizado com sucesso no valor de: R${pagamento:.2f}")
                 print(f"Novo Saldo: R${dados['patrimonio']:.2f}")
                 resposta = input("Qualquer tecla para continuar | (S) para sair:")
@@ -88,17 +87,17 @@ def pagar_conta():
                     print("\nObrigada por utilizar nossos serviços! Até breve.")
                     break
                 else:
-                    return escolher_transacao()
+                    return escolher_transacao(user_id)
             else:
                 print("Saldo insuficiente.")
         except ValueError:
             print("Digite um valor numérico válido.")
 
 
-def solicitar_cartao():
+def solicitar_cartao(user_id):
     return print("Serviço indisponível.")      
 
-def solicitar_emprestimo():
+def solicitar_emprestimo(user_id):
     return print("Serviço indisponível.")
                     
 
