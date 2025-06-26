@@ -1,9 +1,9 @@
 from cli_interativo import escolher_transacao
-from teste_cli_login import Login
+from cli_login import logar, cadastrar
 from  usuario import Usuario
 
 def iniciar_transacao():
-    user_id = Login
+    user_id = logar()
     if user_id:
         usuario = Usuario(user_id)
         escolher_transacao(usuario)
@@ -21,7 +21,7 @@ if __name__ == "__main__":
             if iniciar_transacao():
                 break
         elif opcao == "n":
-            self.cadastrar(user_id)
+            cadastrar()
             print("\n✅ Agora vamos fazer o login...")
             if iniciar_transacao():
                 break
