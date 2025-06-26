@@ -16,12 +16,12 @@ if __name__ == "__main__":
     while True:
         print("\n======== Bem-vindo(a) ao Banco PY 🏦 ==================")
         opcao = input("Você já possui uma conta? 🔐 (s/n): ").strip().lower()
-
+        
         if opcao == "s":
             if iniciar_transacao():
                 break
         elif opcao == "n":
-            self.cadastrar(user_id)
+            Login()
             print("\n✅ Agora vamos fazer o login...")
             if iniciar_transacao():
                 break
