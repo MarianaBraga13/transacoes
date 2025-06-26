@@ -10,12 +10,13 @@ Resumo:
 - ✅ **v1.0**: Transações com arquivos `.txt`, menu simples;
 - ✅ **v2.0**: Saldo e extrato migrados para JSON, área de autenticação/ login sem ID único.
 - ✅ **v3.0**: Implementação de ID único por cliente entre outras funcionalidades como um menu principal.
-- 👉 A nova versão v4.0 prevê a refatoração de todo código usando POO, para finalmente poder implementar na v5.0 a análise de crédito automatizada.
+- ✅ **v4.0**: Refatoração de todo código usando POO, preparando a análise de crédito com IA.
+- 👉 A nova versão v5.0 prevê a análise de crédito automatizada.
 
-Na v2.0 o ID ainda não era único por cliente, o que impedia que as consultas e transações fossem individualizadas. Nessa versão, além disso, implementei mais um menu como principal em main.py e organizei os blocos de código separadamente, evitando bugs e lentidão no sistema.
+Na v3.0 o código ainda não seguia as boas práticas SRP - Single Responsability Principle um dos princípios do SOLID em POO.
 
-A expectativa para a versão seguinte (v4.0) é organizar todo o código seguindo padrões de POO, implementando boas práticas, a fim de preparar o projeto para a análise de crédito.
+A expectativa para a versão seguinte (v5.0) é justamente seguir para as análises de crédito, simulando o comportamento de uma IA.
 
-CLI (Comand Line Interface).
+Este projeto ainda está em CLI (Comand Line Interface).
 
-Esse sistema é a Versão 3.0.
+Esse sistema é a Versão 4.0.
