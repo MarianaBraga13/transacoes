@@ -14,27 +14,31 @@ class Usuario:
     # persistência de dados
     def carregar_dados(self):
         if os.path.exists(ARQUIVO_DADOS):
-            with open(ARQUIVO_DADOS, "r") as f:
-                dados_completos =  json.load(f)
-                dados_usuario = dados_completos.get(self.user_id)
-                if dados_usuario:
-                    self.patrimonio = dados_usuario.get("patrimonio", 0.0)
-                    self.historico = dados_usuario.get("historico", [])       
+            try:
+                with open(ARQUIVO_DADOS, "r") as f:
+                    dados_completos =  json.load(f)
+            except json.JSONDecodeError:        
+                    dados_usuario = dados_completos.get(self.user_id)
+                    if dados_usuario:
+                        self.patrimonio = dados_usuario.get("patrimonio", 0.0)
+                        self.historico = dados_usuario.get("historico", [])       
 
     def salvar_dados(self):
         if os.path.exists(ARQUIVO_DADOS):
-            with open(ARQUIVO_DADOS, "r") as f:
-                dados_completos = json.load(f)
-        else: 
-            dados_completos = {}
+            try:
+                with open(ARQUIVO_DADOS, "r") as f:
+                    dados_completos = json.load(f)
+            except json.JSONDecodeError:
+
+                dados_completos = {}
 
         dados_completos[self.user_id] = {
-            "patrimonio" : self.patrimonio,
-            "historico" : self.historico
-        }
+                "patrimonio" : self.patrimonio,
+                "historico" : self.historico
+            }
 
         with open(ARQUIVO_DADOS, "w") as f:
-            json.dump(dados_completos, f, indent=4)
+                json.dump(dados_completos, f, indent=4)
 
 
     def mostrar_extrato(self):
