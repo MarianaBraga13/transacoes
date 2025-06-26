@@ -2,7 +2,7 @@
 Bem vindo (a) ao Banco Py!
 
 Instruções:
-Clone o respositório na sua máquina e basta rodar no terminal o main.py
+Clone o repositório na sua máquina e basta rodar no terminal o main.py
 
 Resumo:
 ## Histórico de versões
