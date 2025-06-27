@@ -5,7 +5,7 @@ from datetime import datetime
 ARQUIVO_DADOS = "patrimonio.json"
 
 class Usuario:
-    def __init__(self, user_id, nome=None):
+    def __init__(self, user_id, nome=None): # O argumento nome=None é opcional aqui e vem do login
         self.user_id = user_id
         self.nome = nome
         self.patrimonio = 0.0

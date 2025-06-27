@@ -11,12 +11,15 @@ Resumo:
 - ✅ **v2.0**: Saldo e extrato migrados para JSON, área de autenticação/ login sem ID único.
 - ✅ **v3.0**: Implementação de ID único por cliente entre outras funcionalidades como um menu principal.
 - ✅ **v4.0**: Refatoração de todo código usando POO, preparando a análise de crédito com IA.
-- 👉 A nova versão v5.0 prevê a análise de crédito automatizada.
+- ✅ **v5.0**: Iniciando análise de crédito simulando IA com análises heurísticas. Acréscimo de opções no terminal e finalização do fluxo com empréstimos e acesso aos cartões de crédito. Importante: Nessa versão v5.0 também foram feitos testes unitários, pela primeira vez.
+- 👉 A nova versão v6.0 prevê a análise de crédito automatizada, utilizando modelos reais de IA.
 
-Na v3.0 o código ainda não seguia as boas práticas SRP - Single Responsability Principle um dos princípios do SOLID em POO.
+RESUMO DOS ÚLTIMOS PASSOS:
 
-A expectativa para a versão seguinte (v5.0) é justamente seguir para as análises de crédito, simulando o comportamento de uma IA.
+Na v4.0 ainda não utilizávamos os dados do cliente para análise de dados e ainda não realizávamos testes unitários.
+
+A expectativa para a versão seguinte (v6.0) é justamente seguir para as análises de crédito, utilizando modelos reais, com Flask, SQLite e React.JS;
 
 Este projeto ainda está em CLI (Comand Line Interface).
 
-Esse sistema é a Versão 4.0.
+Este sistema é a Versão 5.0.
