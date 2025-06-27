@@ -50,6 +50,6 @@ class Login:
                         self.nome = nome
                         self.senha = senha
                         self.user_id = uid
-                        return uid
+                        return uid, nome
         print("❌ Nome ou senha incorretos.")
-        return None
+        return None, None

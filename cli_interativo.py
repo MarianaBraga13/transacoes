@@ -10,12 +10,14 @@ def escolher_transacao(usuario):
             "5️⃣  Pagar Conta 🧾\n"
             "6️⃣  Gerar Extrato 📄\n"
             "7️⃣  Sair com Saldo Final 🚪\n"
+            "8️⃣  Ver Dashboard 📊\n"
+            "9️⃣  Análise de Crédito 🧠\n"
             "👉 "
             )    
 
         if resposta.isdigit():
             resposta = int(resposta)
-            if 1 <= resposta <= 7:
+            if 1 <= resposta <= 9:
                 if resposta == 1:
                     valor_str = input("Digite um valor para depósito: R$ ")
                     try:
@@ -47,9 +49,9 @@ def escolher_transacao(usuario):
                         print("Digite um número válido.")
 
                 elif resposta == 3:
-                    return usuario.solicitar_emprestimo() 
+                    return usuario.solicitar_emprestimo(valor) 
                 elif resposta == 4:
-                    return usuario.solicitar_cartao()
+                    return usuario.solicitar_cartao(valor)
                 elif resposta == 5:
                     valor_str = input("Digite o valor que deseja pagar: R$ ")
                     try:
@@ -70,7 +72,11 @@ def escolher_transacao(usuario):
                     print("\n================= SALDO FINAL 📄 =================\n")
                     print(f"Saldo final no Banco Py: R${usuario.patrimonio:.2f}")
                     print("Agradecemos sua preferência em contar com os serviços financeiros do nosso Banco Py!\n 👋 Até breve!")
-                    break 
+                    break
+                elif resposta == 8:
+                    return usuario.exibir_dashboard()
+                elif resposta == 9:
+                    return usuario.analisar_credito()
             else:
                 print("Digite uma opção válida.")    
         else:

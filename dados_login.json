@@ -22,5 +22,9 @@
     "u006": {
         "nome": "Ana Beatriz",
         "senha": "1234"
+    },
+    "u007": {
+        "nome": "",
+        "senha": ""
     }
 }
