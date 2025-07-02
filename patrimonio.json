@@ -1,177 +1,54 @@
 {
-    "u001": {
-        "patrimonio": 637.0,
+    "u007": {
+        "patrimonio": 19969.0,
         "historico": [
             {
-                "data": "2025-06-24 16:05:27",
+                "data": "2025-07-02 20:26:32",
                 "tipo": "dep\u00f3sito",
-                "valor": 23.0
+                "valor": 124.0
             },
             {
-                "data": "2025-06-24 16:05:33",
-                "tipo": "transferencia",
-                "valor": 4.0
-            },
-            {
-                "data": "2025-06-25 14:09:05",
+                "data": "2025-07-02 20:26:39",
                 "tipo": "dep\u00f3sito",
-                "valor": 34.0
+                "valor": 24568.0
             },
             {
-                "data": "2025-06-25 18:39:10",
-                "tipo": "dep\u00f3sito",
-                "valor": 23.0
-            },
-            {
-                "data": "2025-06-25 18:39:24",
+                "data": "2025-07-02 20:26:52",
                 "tipo": "transfer\u00eancia",
-                "valor": 67.0
+                "valor": 123.0
             },
             {
-                "data": "2025-06-25 18:40:01",
-                "tipo": "valor",
-                "valor": 4.0
-            },
-            {
-                "data": "2025-06-25 18:57:32",
-                "tipo": "dep\u00f3sito",
-                "valor": 23.0
-            },
-            {
-                "data": "2025-06-25 19:56:00",
-                "tipo": "dep\u00f3sito",
-                "valor": 23.0
-            },
-            {
-                "data": "2025-06-25 19:57:17",
-                "tipo": "transfer\u00eancia",
-                "valor": 34.0
-            },
-            {
-                "data": "2025-06-25 19:57:52",
-                "tipo": "dep\u00f3sito",
-                "valor": 345.0
-            },
-            {
-                "data": "2025-06-25 19:58:03",
-                "tipo": "transfer\u00eancia",
-                "valor": 34.0
-            },
-            {
-                "data": "2025-06-25 19:58:23",
-                "tipo": "valor",
-                "valor": 34.0
-            },
-            {
-                "data": "2025-06-25 20:00:35",
-                "tipo": "dep\u00f3sito",
-                "valor": 23.0
-            },
-            {
-                "data": "2025-06-25 20:00:57",
-                "tipo": "valor",
-                "valor": 34.0
-            },
-            {
-                "data": "2025-06-26 19:56:09",
-                "tipo": "dep\u00f3sito",
-                "valor": 354.0
-            }
-        ]
-    },
-    "u003": {
-        "patrimonio": 655.0,
-        "historico": [
-            {
-                "data": "2025-06-24 16:06:15",
-                "tipo": "dep\u00f3sito",
-                "valor": 1000.0
-            },
-            {
-                "data": "2025-06-24 16:06:24",
+                "data": "2025-07-02 20:27:06",
                 "tipo": "pagamento",
-                "valor": 345.0
-            }
-        ]
-    },
-    "u002": {
-        "patrimonio": 422.0,
-        "historico": [
-            {
-                "data": "2025-06-25 14:10:03",
-                "tipo": "transferencia",
-                "valor": 0.0
+                "valor": 1234.0
             },
             {
-                "data": "2025-06-25 14:10:10",
+                "data": "2025-07-02 20:27:16",
                 "tipo": "dep\u00f3sito",
-                "valor": 456.0
+                "valor": 235.0
             },
             {
-                "data": "2025-06-25 14:10:17",
+                "data": "2025-07-02 20:27:40",
                 "tipo": "pagamento",
-                "valor": 34.0
+                "valor": 1245.0
+            },
+            {
+                "data": "2025-07-02 20:28:54",
+                "tipo": "pagamento",
+                "valor": 2356.0
+            },
+            {
+                "data": "2025-07-02 20:31:12",
+                "tipo": "emprestimo",
+                "valor": 2345.0
+            },
+            {
+                "data": "2025-07-02 20:43:19",
+                "tipo": "emprestimo",
+                "valor": 234.0
             }
-        ]
-    },
-    "u004": {
-        "patrimonio": 5566.0,
-        "historico": [
-            {
-                "data": "2025-06-25 18:58:44",
-                "tipo": "dep\u00f3sito",
-                "valor": 5678.0
-            },
-            {
-                "data": "2025-06-25 18:58:50",
-                "tipo": "transfer\u00eancia",
-                "valor": 56.0
-            },
-            {
-                "data": "2025-06-25 18:58:57",
-                "tipo": "valor",
-                "valor": 56.0
-            }
-        ]
-    },
-    "u005": {
-        "patrimonio": 110.0,
-        "historico": [
-            {
-                "data": "2025-06-25 19:32:51",
-                "tipo": "dep\u00f3sito",
-                "valor": 1000.0
-            },
-            {
-                "data": "2025-06-25 19:35:35",
-                "tipo": "transfer\u00eancia",
-                "valor": 890.0
-            }
-        ]
-    },
-    "u006": {
-        "patrimonio": 4023.0,
-        "historico": [
-            {
-                "data": "2025-06-25 19:39:21",
-                "tipo": "dep\u00f3sito",
-                "valor": 3456.0
-            },
-            {
-                "data": "2025-06-25 19:45:59",
-                "tipo": "dep\u00f3sito",
-                "valor": 456.0
-            },
-            {
-                "data": "2025-06-25 19:46:26",
-                "tipo": "dep\u00f3sito",
-                "valor": 567.0
-            },
-            {
-                "data": "2025-06-25 19:48:10",
-                "tipo": "transfer\u00eancia",
-                "valor": 456.0
-            }
-        ]
+        ],
+        "cartao": 3000,
+        "emprestimo": 10000
     }
 }
