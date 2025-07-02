@@ -107,7 +107,7 @@ class Usuario:
             print(f"✅ Seu limite para empréstimo : R$ {self.limite_emprestimo:.2f}")
             return True
         else:
-            print("❌ Valor inválido ou crédito insuficiente.")
+            print("❌ Valor inválido ou crédito insuficiente.\nCaso ainda não tenha acesso ao serviço, solicite uma análise de crédito.\n")
             return False
 
 

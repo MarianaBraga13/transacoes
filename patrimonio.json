@@ -41,6 +41,11 @@
                 "data": "2025-07-02 20:31:12",
                 "tipo": "emprestimo",
                 "valor": 2345.0
+            },
+            {
+                "data": "2025-07-02 20:43:19",
+                "tipo": "emprestimo",
+                "valor": 234.0
             }
         ],
         "cartao": 3000,
