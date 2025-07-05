@@ -67,4 +67,4 @@ def test_deposito(usuario_limpo):
     usuario.depositar(100)
     assert usuario.patrimonio == 100
     assert len(usuario.historico) == 1
-    assert usuario.historico[0]["tipo"] == "deposito"
+    assert usuario.historico[0]["tipo"] == "depósito"
