@@ -1,0 +1,14 @@
+{
+    "teste01": {
+        "patrimonio": 100.0,
+        "historico": [
+            {
+                "data": "2025-07-04 21:02:52",
+                "tipo": "dep\u00f3sito",
+                "valor": 100
+            }
+        ],
+        "cartao": 0.0,
+        "emprestimo": 0.0
+    }
+}

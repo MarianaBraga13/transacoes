@@ -50,5 +50,57 @@
         ],
         "cartao": 3000,
         "emprestimo": 10000
+    },
+    "u008": {
+        "patrimonio": 3422.0,
+        "historico": [
+            {
+                "data": "2025-07-04 19:14:43",
+                "tipo": "dep\u00f3sito",
+                "valor": 345.0
+            },
+            {
+                "data": "2025-07-04 19:14:53",
+                "tipo": "transfer\u00eancia",
+                "valor": 123.0
+            },
+            {
+                "data": "2025-07-04 19:14:58",
+                "tipo": "pagamento",
+                "valor": 23.0
+            },
+            {
+                "data": "2025-07-04 19:15:27",
+                "tipo": "dep\u00f3sito",
+                "valor": 3456.0
+            },
+            {
+                "data": "2025-07-04 19:15:44",
+                "tipo": "dep\u00f3sito",
+                "valor": 235.0
+            },
+            {
+                "data": "2025-07-04 19:15:57",
+                "tipo": "transfer\u00eancia",
+                "valor": 234.0
+            },
+            {
+                "data": "2025-07-04 19:16:49",
+                "tipo": "emprestimo",
+                "valor": 234.0
+            },
+            {
+                "data": "2025-07-04 19:17:16",
+                "tipo": "emprestimo",
+                "valor": 2435.0
+            },
+            {
+                "data": "2025-07-04 19:18:26",
+                "tipo": "pagamento",
+                "valor": 234.0
+            }
+        ],
+        "cartao": 1500,
+        "emprestimo": 5000
     }
 }

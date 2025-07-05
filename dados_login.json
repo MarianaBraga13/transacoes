@@ -26,5 +26,9 @@
     "u007": {
         "nome": "",
         "senha": ""
+    },
+    "u008": {
+        "nome": "usertest",
+        "senha": ""
     }
 }
