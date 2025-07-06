@@ -51,6 +51,7 @@ class UsuarioTeste(Usuario):
             }
         with open(ARQUIVO_TESTE, "w") as f:
                 json.dump(dados_completos, f, indent=4)
+    
 
 @pytest.fixture
 
@@ -64,7 +65,55 @@ def usuario_limpo():
 
 def test_deposito(usuario_limpo):
     usuario = usuario_limpo
-    usuario.depositar(100)
-    assert usuario.patrimonio == 100
+    usuario.depositar(400)
+    assert usuario.patrimonio == 400
     assert len(usuario.historico) == 1
+    assert usuario.historico[0]["tipo"] == "depósito"    
+
+def test_transferencia(usuario_limpo):
+    usuario = usuario_limpo
+    usuario.depositar(400)
+    usuario.transferir(200)
+    assert usuario.patrimonio == 200
+    assert len(usuario.historico) == 2
     assert usuario.historico[0]["tipo"] == "depósito"
+    assert usuario.historico[1]["tipo"] == "transferência"
+
+def test_pagamento(usuario_limpo):
+    usuario = usuario_limpo
+    usuario.depositar(100)
+    usuario.pagar_conta(100)
+    assert usuario.patrimonio == 0
+    assert len(usuario.historico) == 2
+    assert usuario.historico[0]["tipo"] == "depósito"
+    assert usuario.historico[1]["tipo"] == "pagamento"
+
+def test_emprestimo_nocred(usuario_limpo):
+    usuario = usuario_limpo
+    usuario.depositar(2345)
+    usuario.pagar_conta(345)
+    assert usuario.patrimonio == 2000
+    assert usuario.historico[0]["tipo"] == "depósito"
+    assert usuario.historico[1]["tipo"] == "pagamento"
+    print("❌ Valor inválido ou crédito insuficiente.\nCaso ainda não tenha acesso ao serviço, solicite uma análise de crédito.\n")
+    resultado = usuario.emprestar
+    assert not resultado is False
+
+
+def test_emprestimo_cred(usuario_limpo):
+    usuario = usuario_limpo
+    usuario.depositar(2345)
+    usuario.pagar_conta(345)
+    usuario.depositar(500)
+    usuario.transferir(500)
+    usuario.transferir(500)
+    usuario.emprestar(456)
+    assert usuario.patrimonio == 1500
+    assert usuario.historico[0]["tipo"] == "depósito"
+    assert usuario.historico[1]["tipo"] == "pagamento"
+    assert usuario.historico[2]["tipo"] == "depósito"
+    assert usuario.historico[3]["tipo"] == "transferência"
+    assert usuario.historico[4]["tipo"] == "transferência"
+    assert usuario.historico[5]["tipo"] == "emprestimo"
+
+

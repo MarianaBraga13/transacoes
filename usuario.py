@@ -94,22 +94,17 @@ class Usuario:
             print("❌ Valor inválido ou saldo insuficiente.")
 
     def emprestar(self, valor):
-        if 0 <= valor <= self.limite_emprestimo:
-            self.limite_emprestimo -= valor
-            self.historico.append({
-                "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "tipo": "emprestimo",
-                "valor": valor
-            
-            })
-            self.salvar_dados()
-            print(f"✅ Empréstimo no valor de R$ {valor:.2f} realizado com sucesso!")
-            print(f"✅ Seu limite para empréstimo : R$ {self.limite_emprestimo:.2f}")
-            return True
-        else:
-            print("❌ Valor inválido ou crédito insuficiente.\nCaso ainda não tenha acesso ao serviço, solicite uma análise de crédito.\n")
-            return False
-
+            if 0 <= valor <= self.limite_emprestimo:
+                self.limite_emprestimo -= valor
+                self.historico.append({
+                    "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "tipo": "emprestimo",
+                    "valor": valor
+                })
+                self.salvar_dados()
+                return True
+            else:
+                return False
 
     def pagar_conta(self, valor):
             if 0 <= valor <= self.patrimonio:
@@ -147,23 +142,27 @@ class Usuario:
             print(f"\n🧠Análise de Crédito para {self.nome}:")
             if self.patrimonio >= 5000:
                 self.limite_cartao = 3000
-                self.limite_emprestimo = 10000
+                limite_total = 10000
             elif self.patrimonio >= 2000:
                 self.limite_cartao = 1500
-                self.limite_emprestimo = 5000
+                limite_total = 5000
             elif self.patrimonio >= 500:
                 self.limite_cartao = 800
-                self.limite_emprestimo = 2000
+                limite_total = 2000
             else:
                 self.limite_cartao = 300
-                self.limite_emprestimo = 1000
+                limite_total = 1000
+
+            emprestimos_usados = sum(item["valor"] for item in self.historico if item["tipo"] == "emprestimo"
+            )
+            self.limite_emprestimo = max(0, limite_total - emprestimos_usados)
             self.salvar_dados()
 
-            print(f"   💳 Limite pré-aprovado (Cartão): R$ {self.limite_cartao:.2f}")
-            print(f"   💸 Limite sugerido (Empréstimo): R$ {self.limite_emprestimo:.2f}")
+            print(f"💳 Limite pré-aprovado (Cartão): R$ {self.limite_cartao:.2f}")
+            print(f"💸 Limite total aprovado (Empréstimo): R$ {limite_total:.2f}")
+            print(f"💸 Limite atualizado (Empréstimo): R$ {self.limite_emprestimo:.2f}")
             print("==============================================================\n")
-            return True
-            
+            return True        
 
     def exibir_dashboard(self):
             self.carregar_dados()

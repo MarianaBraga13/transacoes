@@ -50,18 +50,19 @@ def escolher_transacao(usuario):
 
                 elif resposta == 3:
                     try:
-                        valor_str = input("Digite um valor que deseja emprestar: R$ ")
-                        valor = float(valor_str)
-                        emprestimo = usuario.emprestar(valor)
-                        if emprestimo:
-                            print(f"Valor R$ {valor:.2f} adicionado com sucesso à sua conta\nDeseja realizar outra transação?\n")
-                            resposta = input("Digite 'S' para 'SAIR' ou QUALQUER tecla para CONTINUAR: ")
-                            if resposta.upper() == "S":
-                                break
-                            else:
-                                continue
+                        limite_emprestimo = usuario.analisar_credito()
+                        if limite_emprestimo:
+                            print(f"✅ Seu limite para empréstimo : R$ {usuario.limite_emprestimo:.2f}")
+                            valor_str = input("Digite um valor que deseja emprestar: R$ ")
+                            valor = float(valor_str)
+                            emprestimo = usuario.emprestar(valor)
+                            if emprestimo:
+                                print(f"✅ Empréstimo no valor de R$ {valor:.2f} realizado com sucesso!")
+                                resposta = input("Digite 'S' para 'SAIR' ou QUALQUER tecla para CONTINUAR: ")
+                                if resposta.upper() == "S":
+                                    break
                     except ValueError:
-                        print("Digite um número válido.")
+                        print("❌ Valor inválido ou crédito insuficiente.\nCaso ainda não tenha acesso ao serviço, solicite uma análise de crédito.\n")
 
                 elif resposta == 4:
                     usuario.solicitar_cartao()
