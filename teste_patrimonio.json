@@ -1,0 +1,39 @@
+{
+    "teste01": {
+        "patrimonio": 1956.0,
+        "historico": [
+            {
+                "data": "2025-07-06 03:04:31",
+                "tipo": "dep\u00f3sito",
+                "valor": 2345
+            },
+            {
+                "data": "2025-07-06 03:04:31",
+                "tipo": "pagamento",
+                "valor": 345
+            },
+            {
+                "data": "2025-07-06 03:04:31",
+                "tipo": "dep\u00f3sito",
+                "valor": 500
+            },
+            {
+                "data": "2025-07-06 03:04:31",
+                "tipo": "transfer\u00eancia",
+                "valor": 500
+            },
+            {
+                "data": "2025-07-06 03:04:31",
+                "tipo": "transfer\u00eancia",
+                "valor": 500
+            },
+            {
+                "data": "2025-07-06 03:04:31",
+                "tipo": "emprestimo",
+                "valor": 456
+            }
+        ],
+        "cartao": 800,
+        "emprestimo": 1544
+    }
+}
