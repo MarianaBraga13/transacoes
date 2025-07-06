@@ -95,9 +95,10 @@ def test_emprestimo_nocred(usuario_limpo):
     assert usuario.patrimonio == 2000
     assert usuario.historico[0]["tipo"] == "depósito"
     assert usuario.historico[1]["tipo"] == "pagamento"
+    usuario.analisar_credito()
     print("❌ Valor inválido ou crédito insuficiente.\nCaso ainda não tenha acesso ao serviço, solicite uma análise de crédito.\n")
-    resultado = usuario.emprestar
-    assert not resultado is False
+    resultado = usuario.emprestar(500)
+    assert resultado is False
 
 
 def test_emprestimo_cred(usuario_limpo):
@@ -107,8 +108,9 @@ def test_emprestimo_cred(usuario_limpo):
     usuario.depositar(500)
     usuario.transferir(500)
     usuario.transferir(500)
+    usuario.analisar_credito()
     usuario.emprestar(456)
-    assert usuario.patrimonio == 1500
+    assert usuario.patrimonio == 1500 + 456
     assert usuario.historico[0]["tipo"] == "depósito"
     assert usuario.historico[1]["tipo"] == "pagamento"
     assert usuario.historico[2]["tipo"] == "depósito"

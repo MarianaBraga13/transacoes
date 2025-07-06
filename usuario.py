@@ -96,6 +96,7 @@ class Usuario:
     def emprestar(self, valor):
             if 0 <= valor <= self.limite_emprestimo:
                 self.limite_emprestimo -= valor
+                self.patrimonio += valor
                 self.historico.append({
                     "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "tipo": "emprestimo",
