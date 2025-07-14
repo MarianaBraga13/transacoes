@@ -1,10 +1,13 @@
-================== 🏦 BANCO PY ==================
+================== 🏦 BANCO PY =================
 Bem vindo (a) ao Banco Py!
 
 Instruções:
 Clone o repositório na sua máquina e basta rodar no terminal o main.py
 Caso esteja aprendendo com este projeto e queira utilizar testes, instale o pacote para testes no terminal:
 pip install pyteste
+
+Importante:
+Para atualizações dessa mesma versão, busque pelo repositório intitulado "bancopy_app"
 
 Resumo:
 ## Histórico de versões
@@ -23,6 +26,7 @@ Na sequência a v6.0 será para testes finais.
 
 A expectativa para a versão seguinte (v7.0 ou v1.0A) é justamente seguir para as análises de crédito, utilizando modelos reais, scikit learn ou outros. Também devo usar Flask e  SQL; essa nova versão provavelmente será executada reaproveitando o código após os testes com pytest...
 
-Este projeto ainda está em CLI (Comand Line Interface).
+IMPORTANTE:
+Este projeto ainda está em CLI (Comand Line Interface), para interface gráfica, usando Flask, procure pelo repositório intitulado "bancopy_app".
 
 Este sistema é a Versão 6.0.
