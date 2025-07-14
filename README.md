@@ -3,7 +3,7 @@ Bem vindo (a) ao Banco Py!
 
 Instruções:
 Clone o repositório na sua máquina e basta rodar no terminal o main.py
-Caso esteja aprendendo com este projeto e queira utilizar testes, instale o pytest no terminal:
+Caso esteja aprendendo com este projeto e queira utilizar testes, instale o pacote para testes no terminal:
 pip install pyteste
 
 Resumo:
@@ -15,7 +15,7 @@ Resumo:
 - ✅ **v4.0**: Refatoração de todo código usando POO, preparando a análise de crédito com IA.
 - ✅ **v5.0**: Iniciando análise de crédito simulando IA com análises heurísticas. Acréscimo de opções no terminal e finalização do fluxo com empréstimos e acesso aos cartões de crédito.
 - ✅ **v6.0**: Testes unitários independentes com pytest, utilização do __init__.py para separar pacotes.
-- 👉 As versões seguintes prevêem análise de crédito automatizada, utilizando modelos reais de IA e dados disponíveis compartilhados.
+- 👉 As versões seguintes preveem análise de crédito automatizada, utilizando modelos reais de IA e dados disponíveis compartilhados.
 
 RESUMO DOS ÚLTIMOS PASSOS:
 
